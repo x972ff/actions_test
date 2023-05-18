@@ -33,7 +33,7 @@ jobs:
           name: ggit checkout -b new-branch
           command: git checkout -b new-branch
       - run:
-          name: 1
+          name: A
           command: |
             git branch -a
             touch devolution.jpg
@@ -41,7 +41,7 @@ jobs:
             git commit -m "Are we not gender neutral people? We are Devo?"
             git push --set-upstream origin new-branch
       - run:
-          name: 2
+          name: B
           command: |
             touch eden.html
             git add .
