@@ -15,9 +15,12 @@ jobs:
 
     - name: Generate hash of repository
       id: generate_hash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "${{ secrets.GITHUB_TOKEN }}" > /tmp/secret.txt
         cat /tmp/secret.txt
+        echo $GITHUB_TOKEN
         HASH=$(find . -type f -exec md5sum {} \; | md5sum | cut -d" " -f1)
         echo "::set-output name=hash::$HASH"
   
