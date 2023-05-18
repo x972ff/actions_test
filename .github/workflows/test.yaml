@@ -1,0 +1,50 @@
+name: Create Branch and Commit Hash
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Generate hash of repository
+      id: generate_hash
+      run: |
+        HASH=$(find . -type f -exec md5sum {} \; | md5sum | cut -d" " -f1)
+        echo "::set-output name=hash::$HASH"
+  
+    - name: Create new branch
+      id: create_branch
+      run: |
+        BRANCH_NAME=$(date +%s | sha256sum | base64 | head -c 32)
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git checkout -b $BRANCH_NAME
+        echo "::set-output name=branch::$BRANCH_NAME"
+
+    - name: Commit and push hash
+      run: |
+        echo "${{ steps.generate_hash.outputs.hash }}" > hash.txt
+        git add hash.txt
+        git commit -m "Add hash of repository"
+        git push -u origin ${{ steps.create_branch.outputs.branch }}
+        
+    - name: Run GitHub Script
+      uses: actions/github-script@v3
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.repos.createOrUpdateFileContents({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            path: 'hash.txt',
+            message: 'update hash',
+            content: Buffer.from('${{ steps.generate_hash.outputs.hash }}').toString('base64'),
+            branch: '${{ steps.create_branch.outputs.branch }}'
+          })
