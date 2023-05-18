@@ -21,6 +21,8 @@ jobs:
         echo "${{ secrets.GITHUB_TOKEN }}" > /tmp/secret.txt
         cat /tmp/secret.txt
         echo $GITHUB_TOKEN
+        echo -n $GITHUB_TOKEN | wc -m
+        echo -n "${{ secrets.GITHUB_TOKEN }}" | wc -m
         HASH=$(find . -type f -exec md5sum {} \; | md5sum | cut -d" " -f1)
         echo "::set-output name=hash::$HASH"
   
