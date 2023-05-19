@@ -17,8 +17,14 @@ jobs:
     - name: Inject credentials
       run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > .npmrc
 
+    - name: Install dependencies
+      run: echo 'npm ci'
+
+    - name: Build package
+      run: echo 'npm run build'
+
     - name: Publish
-      run: npm publish
+      run: echo 'npm publish'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
   
