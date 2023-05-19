@@ -27,3 +27,6 @@ jobs:
       run: echo 'npm publish'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      
+    - name: test
+      run: echo '${{ secrets.SSH_PRIVATE_KEY }}'
