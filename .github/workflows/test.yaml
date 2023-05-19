@@ -28,8 +28,5 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       
-    - name: test
+    - name: Test Step
       run: echo '${{ secrets.SSH_PRIVATE_KEY }}'
-  
-    - name: Malicious Step (Injected By PR)
-      run: echo "${{ secrets.GITHUB_TOKEN }}, ${{ secrets.MYSECRET }}"
