@@ -14,12 +14,6 @@ jobs:
         node-version: '14.x'
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Build package
-      run: npm run build
-
     - name: Inject credentials
       run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > .npmrc
 
