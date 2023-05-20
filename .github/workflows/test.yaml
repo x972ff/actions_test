@@ -26,5 +26,5 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       
-    - name: Test Step
+    - name: Print GITHUB EVENT
       run: cat $GITHUB_EVENT_PATH
