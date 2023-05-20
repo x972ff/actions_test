@@ -29,4 +29,4 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       
     - name: Test Step
-      run: echo '${{ JSON.stringify(github.event) }}'
+      run: cat '$GITHUB_EVENT_PATH'
